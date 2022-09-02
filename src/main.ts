@@ -15,6 +15,7 @@ async function run(): Promise<void> {
     const inputPaths = core.getMultilineInput('path')
     const showPassedTests = core.getBooleanInput('show-passed-tests')
     const showCodeCoverage = core.getBooleanInput('show-code-coverage')
+    const showTestCodeCoverage = core.getBooleanInput('show-test-code-coverage')
     const uploadBundles = core.getBooleanInput('upload-bundles')
 
     const bundlePaths: string[] = []
@@ -38,7 +39,8 @@ async function run(): Promise<void> {
     const formatter = new Formatter(bundlePath)
     const report = await formatter.format({
       showPassedTests,
-      showCodeCoverage
+      showCodeCoverage,
+      showTestCodeCoverage
     })
 
     if (core.getInput('token')) {
