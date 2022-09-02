@@ -134,7 +134,7 @@ export class TestFailure {
 export class TestCodeCoverage {
   readonly lines: string[] = []
 
-  constructor(codeCoverage: CodeCoverage) {
+  constructor(codeCoverage: CodeCoverage, showTestCodeCoverage: Boolean) {
     const baseUrl = 'https://xcresulttool-static.netlify.app/i/'
 
     this.lines.push('### Code Coverage')
@@ -154,7 +154,7 @@ export class TestCodeCoverage {
     }
 
     for (const target of codeCoverage.targets) {
-      if (target.name.endsWith('.xctest')) {
+      if (target.name.endsWith('.xctest') && !showTestCodeCoverage) {
         continue
       }
       total.hasCodeCoverage = true

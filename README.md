@@ -114,6 +114,11 @@ jobs:
     # Default: true
     show-code-coverage:
 
+    # Whether to show code coverage for test targets (if coverage data exists).
+    #
+    # Default: false
+    show-test-code-coverage:
+
     # Whether to upload the xcresult bundles.
     #
     # Default: true

@@ -134,7 +134,7 @@ export class Formatter {
                   await this.parser.exportCodeCoverage()
                 )
 
-                const testCodeCoverage = new TestCodeCoverage(codeCoverage)
+                const testCodeCoverage = new TestCodeCoverage(codeCoverage, options.showTestCodeCoverage)
                 testReport.codeCoverage = testCodeCoverage
               } catch (error) {
                 // no-op
@@ -980,9 +980,11 @@ interface FailureSummary {
 export class FormatterOptions {
   showPassedTests: boolean
   showCodeCoverage: boolean
+  showTestCodeCoverage: boolean
 
-  constructor(showPassedTests = true, showCodeCoverage = true) {
+  constructor(showPassedTests = true, showCodeCoverage = true, showTestCodeCoverage =false,) {
     this.showPassedTests = showPassedTests
     this.showCodeCoverage = showCodeCoverage
+    this.showTestCodeCoverage = showTestCodeCoverage
   }
 }
